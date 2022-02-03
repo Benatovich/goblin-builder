@@ -1,20 +1,20 @@
 import React from 'react';
 
-export default function GoblinForm(props) {
+export default function GoblinForm({ setGoblinFormName, goblinFormName, setGoblinFormHP, goblinFormHP, setGoblinFormColor, goblinFormColor, submitGoblin }) {
   function handleSubmit(e) {
     e.preventDefault();
 
     const newGoblin = {
-      name: props.goblinFormName,
-      hp: props.goblinFormHP,
-      color: props.goblinFormColor,
+      name: goblinFormName,
+      hp: goblinFormHP,
+      color: goblinFormColor,
     };
 
-    props.submitGoblin(newGoblin);
+    submitGoblin(newGoblin);
 
-    props.setGoblinFormName('');
-    props.setGoblinFormHP('');
-    props.setGoblinFormColor('');
+    setGoblinFormName('');
+    setGoblinFormHP('');
+    setGoblinFormColor('');
   }
 
   return (
@@ -22,15 +22,15 @@ export default function GoblinForm(props) {
       <form className='goblin-form' onSubmit={handleSubmit}>
         <label>
             Name
-          <input required value={props.goblinFormName} onChange={e => props.setGoblinFormName(e.target.value)}/>
+          <input required value={goblinFormName} onChange={e => setGoblinFormName(e.target.value)}/>
         </label>
         <label>
             HP
-          <input required type="number" value={props.goblinFormHP} onChange={e => props.setGoblinFormHP(e.target.value)}/>
+          <input required type="number" value={goblinFormHP} onChange={e => setGoblinFormHP(e.target.value)}/>
         </label>
         <label>
             Color
-          <select required value={props.goblinFormColor} onChange={e => props.setGoblinFormColor(e.target.value)}>
+          <select required value={goblinFormColor} onChange={e => setGoblinFormColor(e.target.value)}>
             <option value="lightgreen">Green</option>
             <option value="lightblue">Blue</option>
             <option value="pink">Pink</option>
