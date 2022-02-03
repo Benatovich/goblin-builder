@@ -14,8 +14,8 @@ function App() {
     goblinFormColor, setGoblinFormColor,
   } = useGoblinForm();
 
-  function submitGoblin(e) {
-    e.preventDefault();
+  function submitGoblin() {
+    // e.preventDefault();
     
     const newGoblin = {
       id: Math.ceil(Math.random() * 999999),
@@ -69,7 +69,7 @@ function App() {
         setGoblinFormHP={setGoblinFormHP}
       />
       <GoblinList 
-        goblins={[filteredGoblins.length ? filteredGoblins : allGoblins]} 
+        goblins={filteredGoblins.length ? filteredGoblins : allGoblins} 
         handleDeleteGoblin={handleDeleteGoblin} // note that the goblin list has access to the ability to delete
       />
     </div>
